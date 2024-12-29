@@ -1,31 +1,30 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class KeyPad : MonoBehaviour
 {
     public GameObject player;
     public GameObject keypadOB;
+    public GameObject keypadNumber;
 
     public TMP_Text textOb;
     public string answer = "b1r2o3g4";
-
-
     private void Start()
     {
         keypadOB.SetActive(false);
     }
-    public void Number(int number)
-    {
-        textOb.text += number.ToString();
-    }
     public void Color(string color)
     {
-        textOb.text+=color;
+        keypadNumber.SetActive(true);
+        keypadOB.SetActive(false);
+        textOb.text += color;
     }
     public void Execute()
     {
-        if (textOb.text==answer)
+        if (textOb.text == answer)
         {
             textOb.text = "Right";
         }
@@ -38,17 +37,21 @@ public class KeyPad : MonoBehaviour
     public void Clear()
     {
         textOb.text = "";
+        keypadNumber.SetActive(false);
+        keypadOB.SetActive(true);
 
     }
     public void Exit()
     {
         keypadOB.SetActive(false);
+        keypadNumber.SetActive(false);
     }
     public void Update()
     {
-        if (textOb.text=="Right")
+        if (textOb.text == "Right")
         {
             Debug.Log("its open");
+            return;
         }
         if (keypadOB.activeInHierarchy)
         {
