@@ -1,20 +1,20 @@
 using UnityEngine;
 
-public class Drawr : Interactable
+public class Fridge : Interactable
 {
-    public Animation drawer;
+    public Animation fridge;
     public bool isOpen;
     public override void Interact()
     {
         base.Interact();
         if (!isOpen)
         {
-            drawer.Play("drawerOpen");
-            isOpen = true;
+                fridge.Play("fridgeOpen");
+                isOpen = true;
         }
         else
         {
-            drawer.Play("drawerClose");
+            fridge.Play("fridgeClose");
             isOpen = false;
         }
     }

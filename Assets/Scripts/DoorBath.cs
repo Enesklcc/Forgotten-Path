@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Door : Interactable
+public class DoorBath : Interactable
 {
     public Animation door;
     public bool isOpen;
@@ -12,19 +12,19 @@ public class Door : Interactable
         {
             if (!isLocked)
             {
-                door.Play("doorOpen");
+                door.Play("doorOpenBath");
                 isOpen = true;
             }
             else
             {
                 Debug.Log("kapý kilit");
             }
-           
+
 
         }
         else
         {
-            door.Play("doorClose");
+            door.Play("doorCloseBath");
             isOpen = false;
         }
     }

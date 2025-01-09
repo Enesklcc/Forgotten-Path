@@ -12,7 +12,6 @@ public class RayCastAction : MonoBehaviour
 
     public GameObject gun;
     public Transform gunHandPosition;
-    public MonoBehaviour[] scriptsToDisable;
 
     public GameObject statue;
     public Transform statueHandPosition;
@@ -33,10 +32,6 @@ public class RayCastAction : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        foreach (var script in scriptsToDisable)
-        {
-            script.enabled = false;
-        }
     }
 
     void Update()
@@ -82,10 +77,8 @@ public class RayCastAction : MonoBehaviour
                     gun.transform.SetParent(gunHandPosition);
                     gun.transform.localPosition = Vector3.zero;
                     gun.transform.localRotation = Quaternion.identity;
-                    foreach (var script in scriptsToDisable)
-                    {
-                        script.enabled = true;
-                    }
+                    var fireGunScript = gun.GetComponent<FireGun>();
+
                     currentCollectable = null;
                 }
                 else if (currentCollectable.gameObject == statueUp)

@@ -16,7 +16,7 @@ public class FireGun : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && isFiring)
+        if (Input.GetButtonDown("Fire1"))
         {
             StartCoroutine(Fire());
             if (shakeScript!=null)
@@ -59,5 +59,6 @@ public class FireGun : MonoBehaviour
         yield return new WaitForSeconds(fireRate);
         Flash.SetActive(false);
         isFiring = false;
+        shakeScript.enabled = false;
     }
 }

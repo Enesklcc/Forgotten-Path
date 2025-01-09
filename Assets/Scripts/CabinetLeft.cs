@@ -1,20 +1,20 @@
 using UnityEngine;
 
-public class Drawr : Interactable
+public class CabinetLeft : Interactable
 {
-    public Animation drawer;
+    public Animation cabinet;
     public bool isOpen;
     public override void Interact()
     {
         base.Interact();
         if (!isOpen)
         {
-            drawer.Play("drawerOpen");
+            cabinet.Play("cabinetOpenL");
             isOpen = true;
         }
         else
         {
-            drawer.Play("drawerClose");
+            cabinet.Play("cabinetCloseL");
             isOpen = false;
         }
     }
